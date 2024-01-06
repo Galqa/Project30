@@ -1,0 +1,59 @@
+<?task5_1 version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="factory" type="factoryType"/>
+  <xs:complexType name="ingredientsType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="water" use="optional"/>
+        <xs:attribute type="xs:string" name="sugar" use="optional"/>
+        <xs:attribute type="xs:string" name="fructose" use="optional"/>
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+        <xs:attribute type="xs:string" name="vanillin" use="optional"/>
+        <xs:attribute type="xs:string" name="cacao" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="valueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="protein" use="optional"/>
+        <xs:attribute type="xs:string" name="fat" use="optional"/>
+        <xs:attribute type="xs:string" name="carbohydrate" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="candyType">
+    <xs:sequence>
+      <xs:element name="type" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="льодяник"/>
+            <xs:enumeration value="з начинкою"/>
+            <xs:enumeration value="шоколад"/>
+            <xs:enumeration value="молочний"/>
+            <xs:enumeration value="желейна"/>
+            <xs:enumeration value="начинкою"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="ingredientsType" name="ingredients"/>
+      <xs:element type="valueType" name="value"/>
+      <xs:element name="production">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Арія"/>
+            <xs:enumeration value="Сяйво"/>
+            <xs:enumeration value="Mars"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:string" name="energy" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="factoryType">
+    <xs:sequence>
+      <xs:element type="candyType" name="candy" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

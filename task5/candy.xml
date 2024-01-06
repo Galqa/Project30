@@ -1,0 +1,46 @@
+<?task5_1 version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE factory [
+        <!ELEMENT factory (candy)*>
+        <!ELEMENT candy (type|ingredients|value|production)*>
+        <!ATTLIST candy
+                energy CDATA #REQUIRED
+                name CDATA #REQUIRED>
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT ingredients (#PCDATA)>
+        <!ATTLIST ingredients
+                cacao CDATA #IMPLIED
+                fructose CDATA #REQUIRED
+                sugar CDATA #REQUIRED
+                type CDATA #IMPLIED
+                vanillin CDATA #REQUIRED
+                water CDATA #REQUIRED>
+        <!ELEMENT value (#PCDATA)>
+        <!ATTLIST value
+                carbohydrate CDATA #REQUIRED
+                fat CDATA #REQUIRED
+                protein CDATA #REQUIRED>
+        <!ELEMENT production (#PCDATA)>
+        ]>
+<factory>
+    <candy name="Чупа-чупс" energy="50">
+        <type>льодяник</type>
+        <type>з начинкою</type>
+        <ingredients water="50" sugar="50" fructose="10" type="Льодяник" vanillin="5"/>
+        <value protein="0.5" fat="1.0" carbohydrate="15.0"/>
+        <production>Арія</production>
+    </candy>
+    <candy name="Чайка" energy="120">
+        <type>шоколад</type>
+        <type>молочний</type>
+        <ingredients water="10" sugar="30" fructose="15" cacao="50" vanillin="19"/>
+        <value protein="10.5" fat="9.0" carbohydrate="10.0"/>
+        <production>Сяйво</production>
+    </candy>
+    <candy name="Желейка" energy="100">
+        <type>желейна</type>
+        <type>з начинкою</type>
+        <ingredients water="5" sugar="14" fructose="25" vanillin="15"/>
+        <value protein="20.5" fat="5.0" carbohydrate="11.0"/>
+        <production>Mars</production>
+    </candy>
+</factory>
